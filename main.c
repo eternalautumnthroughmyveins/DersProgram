@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-// Düðüm yapýsýný tanýmlýyoruz.
+// Dugum yapisi.
 typedef struct Node {
     char courseName[50]; // Ders adi
     char instructor[50]; // Egitmen adi
@@ -51,7 +51,7 @@ Node* insert(Node* root, const char *courseName, const char *instructor,
 void inorderTraversal(Node* node) {
    if (node != NULL) {
        inorderTraversal(node -> left );
-       printf("Ders Adý: %s | Eðitmen: %s | Kredi: %d | Gün: %s | Saat: %s\n", node -> courseName,
+       printf("Ders Adi: %s | Egitmen: %s | Kredi: %d | Gün: %s | Saat: %s\n", node -> courseName,
               node -> instructor,node -> credits,node -> day,node -> time );
       inorderTraversal(node -> right );
    }
