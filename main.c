@@ -71,7 +71,7 @@ int main() {
    Node* root = NULL;
 
    int n;
-   printf("Kaç ders gireceksiniz? ");
+   printf("Kac ders gireceksiniz? ");
    scanf("%d", &n);
 
 	getchar(); 
@@ -80,24 +80,24 @@ int main() {
 		char course[50], instructor[50], day[20], time[10];
 		int credits;
 
-		printf("\nDers Adýný giriniz: ");
+		printf("\nDers Adini giriniz: ");
 		fgets(course,sizeof(course),stdin);
 		course[strcspn(course,"\n")]='\0';
 
-		printf("Eðitmeni giriniz: ");
+		printf("ogretmeni giriniz: ");
 		fgets(instructor,sizeof(instructor),stdin);
 		instructor[strcspn(instructor,"\n")]='\0';
 
-        printf("Kredi sayýsýný giriniz: ");
+        printf("Kredi sayisini giriniz: ");
         scanf("%d",&credits);
 
         getchar();
 
-        printf("Günü giriniz (örn. Pazartesi): ");
+        printf("Gunu giriniz (orn. Pazartesi): ");
         fgets(day,sizeof(day),stdin);
         day[strcspn(day,"\n")]='\0';
 
-        printf("Saati giriniz (örn. 10:00): ");
+        printf("Saati giriniz (orn. 10:00): ");
         fgets(time,sizeof(time),stdin);
         time[strcspn(time,"\n")]='\0';
 
@@ -109,7 +109,7 @@ int main() {
             time );
 	   }
 
-	printf("\nDers Programý:\n");
+	printf("\nDers Programi:\n");
 	inorderTraversal(root);
 
 	freeTree(root);
