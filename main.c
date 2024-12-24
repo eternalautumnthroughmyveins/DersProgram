@@ -2,18 +2,18 @@
 #include <stdlib.h>
 #include <string.h>
 
-// Düðüm yapýsýný tanýmlýyoruz.
+// DÃ¼Ã°Ã¼m yapÃ½sÃ½nÃ½ tanÃ½mlÃ½yoruz.
 typedef struct Node {
-    char courseName[50]; // Ders adý
-    char instructor[50]; // Eðitmen adý
-    int credits;  // Kredi sayýsý
-    char day[20];  // Gün bilgisi (örneðin "Pazartesi")
-    char time[10]; // Saat bilgisi (örneðin "10:00")
-    struct Node* left; // Sol alt düðüm iþaretçisi
-    struct Node* right; // Sað alt düðüm iþaretçisi
+    char courseName[50]; // Ders adi
+    char instructor[50]; // Egitmen adi
+    int credits;  // Kredi sayisi
+    char day[20];  // GÃ¼n bilgisi (Ã¶rnegin "Pazartesi")
+    char time[10]; // Saat bilgisi (Ã¶rnegin "10:00")
+    struct Node* left; // Sol alt dÃ¼gÃ¼m isaretÃ§isi
+    struct Node* right; // SaÃ° alt dÃ¼gÃ¼m isaretÃ§isi
 } Node;
 
-// Yeni düðüm oluþturma fonksiyonu.
+// dÃ¼gÃ¼m olusturma fonksiyonu.
 Node* createNode(const char *courseName, const char *instructor, int credits, const char *day, const char *time) {
     Node* newNode = (Node*)malloc(sizeof(Node));
 
@@ -31,7 +31,7 @@ Node* createNode(const char *courseName, const char *instructor, int credits, co
    return newNode;
 }
 
-// Aðaçta dersi ekleyecek olan fonksiyon.
+// olusturgumuz dÃ¼gÃ¼mleri agaca ekleme.
 Node* insert(Node* root, const char *courseName, const char *instructor,
              int credits, const char *day,const 	char *time) {
 
@@ -47,17 +47,17 @@ Node* insert(Node* root, const char *courseName, const char *instructor,
      return root;
 }
 
-// Inorder Traversal: Soldan baþlayarak kökü ve sonra sað çocuðu ziyaret ederiz.
+// Inorder Traversal: sol kÃ¶k sag sirasi ile.
 void inorderTraversal(Node* node) {
    if (node != NULL) {
        inorderTraversal(node -> left );
-       printf("Ders Adý: %s | Eðitmen: %s | Kredi: %d | Gün: %s | Saat: %s\n", node -> courseName,
+       printf("Ders AdÃ½: %s | EÃ°itmen: %s | Kredi: %d | GÃ¼n: %s | Saat: %s\n", node -> courseName,
               node -> instructor,node -> credits,node -> day,node -> time );
       inorderTraversal(node -> right );
    }
 }
 
-// Aðaçtaki tüm kaynaklarý serbest býrakmak içindir.
+// agac icin kullanilan bellegi bosatlma.
 void freeTree(Node* node) {
    if (node != NULL) {
        freeTree(node -> left );
@@ -66,38 +66,38 @@ void freeTree(Node* node) {
   }
 }
 
-// Ana fonksiyon - Programýn giriþ noktasýdýr.
+// Ana fonksiyon.
 int main() {
    Node* root = NULL;
 
    int n;
-   printf("Kaç ders gireceksiniz? ");
+   printf("KaÃ§ ders gireceksiniz? ");
    scanf("%d", &n);
 
-	getchar(); // Bu satýr yeni satýr karakterini temizlemek için eklendi.
+	getchar(); 
 
 	for(int i=0;i<n;i++) {
 		char course[50], instructor[50], day[20], time[10];
 		int credits;
 
-		printf("\nDers Adýný giriniz: ");
+		printf("\nDers AdÃ½nÃ½ giriniz: ");
 		fgets(course,sizeof(course),stdin);
 		course[strcspn(course,"\n")]='\0';
 
-		printf("Eðitmeni giriniz: ");
+		printf("EÃ°itmeni giriniz: ");
 		fgets(instructor,sizeof(instructor),stdin);
 		instructor[strcspn(instructor,"\n")]='\0';
 
-        printf("Kredi sayýsýný giriniz: ");
+        printf("Kredi sayÃ½sÃ½nÃ½ giriniz: ");
         scanf("%d",&credits);
 
         getchar();
 
-        printf("Günü giriniz (örn. Pazartesi): ");
+        printf("GÃ¼nÃ¼ giriniz (Ã¶rn. Pazartesi): ");
         fgets(day,sizeof(day),stdin);
         day[strcspn(day,"\n")]='\0';
 
-        printf("Saati giriniz (örn. 10:00): ");
+        printf("Saati giriniz (Ã¶rn. 10:00): ");
         fgets(time,sizeof(time),stdin);
         time[strcspn(time,"\n")]='\0';
 
@@ -109,7 +109,7 @@ int main() {
             time );
 	   }
 
-	printf("\nDers Programý:\n");
+	printf("\nDers ProgramÃ½:\n");
 	inorderTraversal(root);
 
 	freeTree(root);
