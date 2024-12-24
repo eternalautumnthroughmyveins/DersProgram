@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1734974818 source:c:\users\eminc\onedrive\masaüstü\c en baŞtan\dersprogram\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
